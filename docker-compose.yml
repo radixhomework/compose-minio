@@ -1,7 +1,8 @@
 services:
   minio:
     image: quay.io/minio/aistor/minio:latest
-    command: server /mnt/data --console-address ":9001" --license /minio.license]
+    pull_policy: always
+    command: server /mnt/data --console-address ":9001" --license /minio.license
     ports:
       - "${S3_PORT}:9000"
       - "${ADMIN_PORT}:9001"
