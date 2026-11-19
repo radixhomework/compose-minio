@@ -12,6 +12,7 @@ services:
     volumes:
       - ${DATA_PATH}:/mnt/data
       - ${LICENSE_PATH}:/minio.license:ro
+    restart: unless-stopped
     healthcheck:
       test: [ "CMD", "mc", "ready", "local" ]
       interval: 5s
